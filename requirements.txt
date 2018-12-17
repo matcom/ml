@@ -1,0 +1,11 @@
+flask
+flask-restful
+graphviz
+nltk
+owlready
+owlready2
+psutil
+pytest
+rdflib
+spacy
+wikipedia

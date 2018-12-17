@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  matcom-ml:
+    image: matcom/ml
+    build: "."
+    container_name: matcom-ml
+    command: "jupyter notebook"
+    networks:
+      - 'matcom'
+
+networks:
+  matcom:
