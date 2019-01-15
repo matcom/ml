@@ -8,6 +8,7 @@ owlready
 owlready2
 psutil
 pytest
+pyyaml
 rdflib
 seqlearn
 sklearn-crfsuite
