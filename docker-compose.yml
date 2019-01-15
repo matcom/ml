@@ -1,11 +1,23 @@
 version: "3"
 
 services:
-  matcom-ml:
-    image: matcomuh/ml
+  terminal:
+    image: matcomuh/ml:cpu
     build: "."
-    container_name: matcom-ml
-    command: "jupyter notebook"
+    container_name: matcom-ml-terminal
+    command: "bash"
+    networks:
+      - 'matcom'
+
+  lab:
+    image: matcomuh/ml:cpu
+    volumes:
+      - ./notebooks:/ml/notebooks
+    ports:
+      - '8888:8888'
+    container_name: matcom-ml-lab
+    command: ["jupyter", "lab", "--allow-root", "--NotebookApp.password=", "--NotebookApp.token=", "--ip=0.0.0.0"]
+    working_dir: "/ml/notebooks"
     networks:
       - 'matcom'
 
