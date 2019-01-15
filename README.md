@@ -15,7 +15,29 @@ docker-compose up
 In [localhost:8888](http://localhost:8888) you will find an instance of [JupyterLab](https://github.com/jupyterlab/jupyterlab).
 The notebooks are stored in the local `notebooks` folder.
 
-## License
+## What's included
+
+* Jupyter Notebook & Lab
+* Tensorflow (1.12.0)
+* Keras (2.1.6-tf)
+* Scikit-learn (0.20)
+  * hmmlearn
+  * sklearn-crfsuite
+  * seqlearn
+* Flask & Flask-RESTful
+* Gensim
+* Graphviz
+* NLTK
+* owlready (1 & 2)
+* Spacy
+  * (`en` and `es` corpora)
+  * `neuralcoref`
+
+Plus small utilities such as `psutils`. Take a look at the [requirements.txt](requirements.txt) file.
+
+## License & Contributions
+
+All contributions are appreciated! Licensed under MIT.
 
 > MIT License
 >
