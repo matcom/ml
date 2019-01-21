@@ -1,29 +1,27 @@
 # Inherit from tensorflow which is the most complex dependency
-FROM tensorflow/tensorflow:latest-py3
+FROM tensorflow/tensorflow:1.12.0-py3
 
 # Copy the source
-COPY . /matcom-ml
+COPY . /ml
 
 # Start inside the project folder
-WORKDIR /matcom-ml
+WORKDIR /ml
 
 # Set language environment to UTF-8 by default
 ENV LANG C.UTF-8
 
 # Install dependencies
-RUN apt update && apt install -y git curl graphviz
+RUN apt update && apt install -y git curl graphviz && rm -rf /var/apt/cache
 
 # Install Jupyter Lab
-RUN curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin <admin-user-name>
+RUN curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin admin
 
-# Add all necessary Python dependencies here
-RUN pip3 install -r requirements.txt
+# Python dependencies (managed through pip)
+RUN pip install cython
+RUN pip install -r requirements.txt
 
 # Download all required corpora
-RUN /matcom-ml/download_corpora.sh
-
-# Set up volumes
-VOLUME /matcom-ml
+RUN /ml/download_corpora.sh
 
 # By default launch a terminal
-CMD jupyter notebook --allow-root
+CMD bash

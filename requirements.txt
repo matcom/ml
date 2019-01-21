@@ -1,16 +1,14 @@
-cython
 flask
 flask-restful
 gensim
 graphviz
 hmmlearn
-keras
 nltk
 owlready
 owlready2
 psutil
-pymedtermino
 pytest
+pyyaml
 rdflib
 seqlearn
 sklearn-crfsuite
