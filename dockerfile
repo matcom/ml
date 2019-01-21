@@ -10,8 +10,13 @@ WORKDIR /matcom-ml
 # Set language environment to UTF-8 by default
 ENV LANG C.UTF-8
 
+# Install dependencies
+RUN apt update && apt install -y git curl graphviz
+
+# Install Jupyter Lab
+RUN curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin <admin-user-name>
+
 # Add all necessary Python dependencies here
-RUN apt update && apt install -y git graphviz
 RUN pip3 install -r requirements.txt
 
 # Download all required corpora
