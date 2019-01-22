@@ -13,8 +13,8 @@ ENV LANG C.UTF-8
 # Install dependencies
 RUN apt update && apt install -y git curl graphviz && rm -rf /var/apt/cache
 
-# Install Jupyter Lab
-RUN curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo -E python3 - --admin admin
+# Install Jupyter Notebook Lab
+RUN pip install jupyterlab
 
 # Python dependencies (managed through pip)
 RUN pip install cython
