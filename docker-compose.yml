@@ -1,9 +1,11 @@
 version: "3"
 
 services:
-  lab:
+  ml:
     image: matcomuh/ml:cpu
-    build: "."
+    build:
+      context: "."
+      dockerfile: cpu.dockerfile
     volumes:
       - ./notebooks:/ml/notebooks
     ports:
@@ -13,6 +15,17 @@ services:
     working_dir: "/ml/notebooks"
     networks:
       - 'matcom'
+
+  hub:
+    image: matcomuh/hub:cpu
+    build:
+      context: "."
+      dockerfile: hub.dockerfile
+    volumes:
+      - ./hub:/etc/jupyterhub
+    ports:
+      - '8000:8000'
+    command: ["jupyterhub", "-f", "/etc/jupyterhub/config.py"]
 
 networks:
   matcom:
