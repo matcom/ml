@@ -7,6 +7,7 @@ services:
       context: "."
       dockerfile: gpu.dockerfile
     runtime: nvidia
+    container_name: ml-gpu
 
   hub:
     image: matcomuh/hub:gpu
@@ -14,6 +15,7 @@ services:
       context: "."
       dockerfile: hub-gpu.dockerfile
     runtime: nvidia
+    container_name: hub-gpu
 
 networks:
   matcom:
