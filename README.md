@@ -1,23 +1,43 @@
 # MatCom Machine Learning image
 
-Base machine learning image and environment. [Pull](https://cloud.docker.com/u/matcomuh/repository/docker/matcomuh/ml) with:
+Base machine learning images and environment.
+
+This repository contains two images:
+* `matcomuh/ml` is a basic machine learning image with several popular ML tools.
+* `matcomuh/hub` is a fully-functional JupyterHub on top of the basic ML image.
+
+## Basic ML usage
+
+If you just want to hack machine learning on your own, you can use the basic image.
+Clone this repository and run:
 
 ```bash
-docker pull matcomuh/ml:latest
-```
-
-The easiest way to start hacking is to clone and simply run:
-
-```bash
-docker-compose up
+docker-compose up ml
 ```
 
 In [localhost:8888](http://localhost:8888) you will find an instance of [JupyterLab](https://github.com/jupyterlab/jupyterlab).
 The notebooks are stored in the local `notebooks` folder.
 
+## JupyterHub
+
+If you need a more advanced multi-user JupyterHub scenario, then run:
+
+```bash
+docker-compose up hub
+```
+
+In [localhost:8000](http://localhost:8000) you will find an instance of [JupyterHub](https://github.com/jupyterhub/jupyterhub).
+* The default user is `admin` with password `admin`.
+* The file `hub/config.py` contains the configuration file for this instance.
+
+Users are by default added to the system, and their data folders are **not** mounted outside the container.
+Hence, you should (read **must**) modify the `docker-compose.yml` file and setup your own long-term persistence mechanism if you want multiple users to persist.
+
+> **NOTE:** Keep in mind that if you destroy the container you will loose all your users and data, unless you have taken care of the previous point!
+
 ## What's included
 
-* Jupyter Notebook & Lab
+* Jupyter Notebook / Lab / Hub
 * Tensorflow (1.12.0)
 * Keras (2.1.6-tf)
 * Scikit-learn (0.20)
