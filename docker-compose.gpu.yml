@@ -1,0 +1,19 @@
+version: "2.3"
+
+services:
+  ml:
+    image: matcomuh/ml:gpu
+    build:
+      context: "."
+      dockerfile: gpu.dockerfile
+    runtime: nvidia
+
+  hub:
+    image: matcomuh/hub:gpu
+    build:
+      context: "."
+      dockerfile: hub-gpu.dockerfile
+    runtime: nvidia
+
+networks:
+  matcom:

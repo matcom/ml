@@ -1,10 +1,14 @@
 # MatCom Machine Learning image
 
-Base machine learning images and environment.
+Base machine learning images and environment with CPU and GPU support.
 
 This repository contains two images:
-* `matcomuh/ml` is a basic machine learning image with several popular ML tools.
-* `matcomuh/hub` is a fully-functional JupyterHub on top of the basic ML image.
+* `matcomuh/ml:cpu` is a basic machine learning image with several popular ML tools.
+* `matcomuh/hub:cpu` is a fully-functional JupyterHub on top of the basic ML image.
+
+Also, the same images with GPU support:
+* `matcomuh/ml:gpu`
+* `matcomuh/hub:gpu`
 
 ## Basic ML usage
 
@@ -34,6 +38,24 @@ Users are by default added to the system, and their data folders are **not** mou
 Hence, you should (read **must**) modify the `docker-compose.yml` file and setup your own long-term persistence mechanism if you want multiple users to persist.
 
 > **NOTE:** Keep in mind that if you destroy the container you will loose all your users and data, unless you have taken care of the previous point!
+
+## Running the GPU version
+
+By default the CPU version of the services are run. If you want to try the GPU version, you will need [nvidia-docker2](https://github.com/NVIDIA/nvidia-docker) installed, and suitable NVIDIA drivers for your box.
+
+With all prerequisites, you are ready to run the GPU version of the services:
+
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.gpu.yml up [ml|hub]
+```
+
+If you are gonna be running GPU all the time, consider creating a `docker-compose.override.yml` link to simplify things:
+
+```bash
+ln -s docker-compose.gpu.yml docker-compose.override.yml
+```
+
+Then just running `docker-compose up` as usual will automatically use the GPU version of the services.
 
 ## What's included
 

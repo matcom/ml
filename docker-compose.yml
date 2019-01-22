@@ -1,4 +1,4 @@
-version: "3"
+version: "2.3"
 
 services:
   ml:
@@ -20,7 +20,7 @@ services:
     image: matcomuh/hub:cpu
     build:
       context: "."
-      dockerfile: hub.dockerfile
+      dockerfile: hub-cpu.dockerfile
     volumes:
       - ./hub:/etc/jupyterhub
     ports:
