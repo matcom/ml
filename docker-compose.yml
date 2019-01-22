@@ -10,7 +10,7 @@ services:
       - ./notebooks:/ml/notebooks
     ports:
       - '8888:8888'
-    container_name: matcom-ml
+    container_name: ml
     command: ["jupyter", "lab", "--allow-root", "--NotebookApp.password=", "--NotebookApp.token=", "--ip=0.0.0.0"]
     working_dir: "/ml/notebooks"
     networks:
@@ -26,6 +26,9 @@ services:
     ports:
       - '8000:8000'
     command: ["jupyterhub", "-f", "/etc/jupyterhub/config.py"]
+    container_name: hub
+    networks:
+      - 'matcom'
 
 networks:
   matcom:
