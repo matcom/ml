@@ -22,6 +22,8 @@ services:
       context: "."
       dockerfile: hub-cpu.dockerfile
     volumes:
+      - db:/ml/db
+      - users_data:/home
       - ./hub:/etc/jupyterhub
     ports:
       - '8000:8000'
@@ -32,3 +34,7 @@ services:
 
 networks:
   matcom:
+
+volumes:
+  db:
+  users_data:

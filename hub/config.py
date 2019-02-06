@@ -161,7 +161,7 @@ c.JupyterHub.admin_access = True
 #c.JupyterHub.db_kwargs = {}
 
 ## url for the database. e.g. `sqlite:///jupyterhub.sqlite`
-#c.JupyterHub.db_url = 'sqlite:///jupyterhub.sqlite'
+c.JupyterHub.db_url = 'sqlite:///db/jupyterhub.sqlite'
 
 ## log all database transactions. This has A LOT of output
 #c.JupyterHub.debug_db = False
