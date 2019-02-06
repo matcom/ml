@@ -16,6 +16,3 @@ services:
       dockerfile: hub-gpu.dockerfile
     runtime: nvidia
     container_name: hub-gpu
-
-networks:
-  matcom:

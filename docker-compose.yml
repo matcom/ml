@@ -23,7 +23,7 @@ services:
       dockerfile: hub-cpu.dockerfile
     volumes:
       - db:/ml/db
-      - users_data:/home
+      - users:/home
       - ./hub:/etc/jupyterhub
     ports:
       - '8000:8000'
@@ -37,4 +37,4 @@ networks:
 
 volumes:
   db:
-  users_data:
+  users:
