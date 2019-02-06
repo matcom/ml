@@ -34,10 +34,10 @@ In [localhost:8000](http://localhost:8000) you will find an instance of [Jupyter
 * The default user is `admin` with password `admin`.
 * The file `hub/config.py` contains the configuration file for this instance.
 
-Users are by default added to the system, and their data folders are **not** mounted outside the container.
-Hence, you should (read **must**) modify the `docker-compose.yml` file and setup your own long-term persistence mechanism if you want multiple users to persist.
+Users are by default added to the system, and their data folders are mounted in a `docker` volume.
+Hence when the container is re-created the data and users will still be there.
 
-> **NOTE:** Keep in mind that if you destroy the container you will loose all your users and data, unless you have taken care of the previous point!
+> **NOTE**: New users are created by default with the same username as password. When the container is destroyed and re-created, **password changes are not saved** for now.
 
 ## Running the GPU version
 
@@ -77,9 +77,15 @@ Then just running `docker-compose up` as usual will automatically use the GPU ve
 
 Plus small utilities such as `psutils`. Take a look at the [requirements.txt](requirements.txt) file.
 
+## Contributors:
+
+* [Alejandro Piad](https://github.com/apiad)
+* [Hian Cañizares](https://github.com/hiancdtrsnm)
+
 ## License & Contributions
 
 All contributions are appreciated! Licensed under MIT.
+Make sure to add your name to the previous list.
 
 > MIT License
 >
