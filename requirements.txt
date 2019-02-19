@@ -3,6 +3,7 @@ flask-restful
 gensim
 graphviz
 hmmlearn
+keras
 nltk
 owlready
 owlready2
