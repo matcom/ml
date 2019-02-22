@@ -1,3 +1,4 @@
+autokeras
 flask
 flask-restful
 gensim
@@ -7,6 +8,7 @@ nltk
 owlready
 owlready2
 psutil
+pydot
 pytest
 pyyaml
 rdflib
