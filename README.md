@@ -61,7 +61,7 @@ Then just running `docker-compose up` as usual will automatically use the GPU ve
 
 * Jupyter Notebook / Lab / Hub
 * Tensorflow (1.12.0)
-* Keras (2.1.6-tf)
+* Keras (2.1.6-tf) _(see note)_
 * Scikit-learn (0.20)
   * hmmlearn
   * sklearn-crfsuite
@@ -76,6 +76,8 @@ Then just running `docker-compose up` as usual will automatically use the GPU ve
   * `neuralcoref`
 
 Plus small utilities such as `psutils`. Take a look at the [requirements.txt](requirements.txt) file.
+
+> **NOTE:** To use `keras`, you have to import it as `from tensorflow import keras`.
 
 ## Contributors:
 
