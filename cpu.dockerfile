@@ -20,6 +20,8 @@ RUN pip install jupyterlab
 RUN pip install cython
 RUN pip install -r requirements.txt
 
+RUN pip install git+https://github.com/GantMan/nsfw_model.git
+
 # Download all required corpora
 RUN /ml/download_corpora.sh
 
