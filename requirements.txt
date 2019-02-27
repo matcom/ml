@@ -5,6 +5,7 @@ gensim
 graphviz
 hmmlearn
 nltk
+opencv-contrib-python
 owlready
 owlready2
 psutil
