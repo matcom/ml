@@ -3,6 +3,8 @@ services:
   mongodb:
     image: mongo:latest
     container_name: "mongodb"
+    env_file:
+      - env.env
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
