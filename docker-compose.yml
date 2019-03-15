@@ -18,12 +18,15 @@ services:
 
   hub:
     image: matcomuh/hub:cpu
+    env_file:
+        - env.env
     build:
       context: "."
       dockerfile: hub-cpu.dockerfile
     volumes:
       - db:/ml/db
       - users:/home
+      - ${DATASET_FOLDER}:/datasets
       - ./hub:/etc/jupyterhub
     ports:
       - '8000:8000'
