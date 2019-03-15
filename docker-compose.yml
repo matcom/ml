@@ -18,8 +18,6 @@ services:
 
   hub:
     image: matcomuh/hub:cpu
-    env_file:
-        - env.env
     build:
       context: "."
       dockerfile: hub-cpu.dockerfile
@@ -28,6 +26,8 @@ services:
       - users:/home
       - ${DATASET_FOLDER}:/datasets
       - ./hub:/etc/jupyterhub
+    env_file:
+        - ./env.env
     ports:
       - '8000:8000'
     command: ["jupyterhub", "-f", "/etc/jupyterhub/config.py"]
