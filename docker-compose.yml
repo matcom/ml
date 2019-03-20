@@ -24,10 +24,14 @@ services:
     volumes:
       - db:/ml/db
       - users:/home
+      - ${DATASET_FOLDER}:/datasets
       - ./hub:/etc/jupyterhub
+    env_file:
+        - ./env.env
     ports:
       - '8000:8000'
     command: ["jupyterhub", "-f", "/etc/jupyterhub/config.py"]
+    restart: always
     container_name: hub
     networks:
       - 'matcom'

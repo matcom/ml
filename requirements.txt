@@ -9,6 +9,7 @@ owlready
 owlready2
 psutil
 pydot
+pymongo
 pytest
 pyyaml
 rdflib
