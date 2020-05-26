@@ -19,3 +19,5 @@ sklearn-crfsuite
 spacy
 unidecode
 wikipedia
+
+numpy>=1.16.3 # not directly required, pinned by Snyk to avoid a vulnerability
